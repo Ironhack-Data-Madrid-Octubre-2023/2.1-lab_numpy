@@ -196,7 +196,17 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
+# %%
+g = np.zeros_like(d, dtype=int)
+g
 
+g = np.where((d > d_min) & (d < d_mean), 'A', g) # He usado el mismo código que el apartado anterior, cambiando los valores por el caracter 'a', 'b', 'c'...
+g = np.where((d > d_mean) & (d < d_max), 'B', g)
+g = np.where(d == d_mean, 'C', g)
+g = np.where(d == d_min, 'D', g)
+g = np.where(d == d_max, 'E', g)
 
+print(g)
 
+# %%
 # %%
