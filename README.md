@@ -8,7 +8,7 @@ An important ability of a data scientist/data engineer is to know where and how 
 
 ## Getting Started
 
-Open the `main.py` file in the `your-code` directory with your favorite text editor. There are a bunch of commentations starting with `#` which instruct what you are supposed to do step by step. Follow the order of the instructions from top to bottom. Read each instruction carefully and provide your answer beneath it. You should also test your answers in Python in the terminal to make sure your responses are correct. If one of your responses is incorrect, you may not be able to proceed because later responses may depend upon previous responses.
+Open the `main.py` file in the `your-code` directory with your favorite text editor. There are a bunch of commentations starting with `#` which instruct what you are supposed to do step by step. Follow the order of the instructions from top to bottom. Read each instruction carefully and provide your answer beneath it. You should also test your answers in Python in the terminal to make sure your responses are correct. If one of your responses is incorrect, you may not be able to proceed because late"r responses may depend upon previous responses.
 
 For instance, in the first few lines of `main.py`, you see:
 
