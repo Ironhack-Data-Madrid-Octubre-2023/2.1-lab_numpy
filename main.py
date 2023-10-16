@@ -77,6 +77,8 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+""""
+# using numPy
 condition1 = (d > d_min) & (d < d_mean)
 f = np.where(condition1, 25, f)
 
@@ -89,8 +91,22 @@ f = np.where(condition3, 50, f)
 f = np.where(d == d_min, 0, f)
 
 f = np.where(d == d_max, 100, f)
-
-
+"""
+#without numpy
+for a in range(len(d)):
+    for b in range(len(d[a])):
+        for c in range(len(d[a][b])):
+            value=d[a][b][c]
+            if value > d_min and value < d_mean:
+                f[a][b][c]=25
+            elif value > d_mean and value < d_max:
+                f[a][b][c]=75
+            elif value == d_mean:
+                f[a][b][c]=50
+            elif value == d_min:
+                f[a][b][c]=0
+            elif value == d_max:
+                f[a][b][c]=100
 
 
 """
