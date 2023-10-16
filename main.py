@@ -1,72 +1,94 @@
+
 #1. Import the NUMPY package under the name np.
 
-
+import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-
+print("NumPy version:", np.__version__)
+#NumPy version: 1.21.5
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
+print(np.random.random(2))
+type(np.random.random(3))
 
+a = np.random.randint(100, size=(2,3,5))
+a.shape
 
 #4. Print a.
 
-
+print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
-
+b = np.ones((5, 2, 3))
 
 #6. Print b.
 
+b.shape
+print(b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-
-
+a.shape == b.shape
 
 #8. Are you able to add a and b? Why or why not?
 
+a + b
+# ValueError: operands could not be broadcast together with shapes (2,3,5) (5,2,3)
+# para hacer el calculo se necesita que la matrix A1 tenga el mismo numero de columnas que filas la matrix A2
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+b.shape
+c=np.transpose(b, axes=(1,2,0))
+c.shape
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-
+d = a + c
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
+print(a)
+print(d)
 
-
+# lsuma 1 a todos los valores dentro de la matrix
 
 #12. Multiply a and c. Assign the result to e.
 
+e = a * c
+print(e)
 
 
 #13. Does e equal to a? Why or why not?
 
+e == a
 
+#si porque al multiplicar por c (todos son 1) queda el mismo resultado que a
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
-
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
+f = np.zeros((2,3,5), like=d)
+print(f)
 
 
 """
-#16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
+#16. Populate the values in f. For each value in d, 
+
+if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
@@ -75,6 +97,13 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+
+f1 = np.where(d == d_max, 100, 0)  # condicion, me das uno else 0
+f2 = np.where(d == d_min, 0, 0)  # condicion, me das uno else 0
+f3 = np.where(np.logical_and(d_min < d, d < d_mean), 25, 0)  # condicion, me das uno else 0
+f4 = np.where(np.logical_and(d_mean < d, d < d_max), 75, 0)  # condicion, me das uno else 0
+
+f = f1 + f2 + f3 + f4
 
 
 
@@ -112,3 +141,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
