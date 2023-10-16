@@ -31,39 +31,44 @@ a.shape == b.shape
 
 #8. Are you able to add a and b? Why or why not?
 
-# Nope! Te da un error porque la cantidad de  
+# Nope! Te da un error porque el tamaño de uno y otro son distintos. 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-
+c = b.transpose((1,2,0))
+c.shape
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
+d = a + c # esto funciona porque a y c tienen el mismo tamaño o "shape".
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
+print(a)
+print(d)
 
-
+# 'd' es el resultdo de sumarle 1 (o lo que es lo mismo los valores en c) a 'a'.
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a * c
 
 #13. Does e equal to a? Why or why not?
 
-
+e == a
+# es lo mismo porque 'c' es un array con valores 1 y 1*n= n por lo tando lo que multipliques por 'c' será lo mismo. 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
-
+d_max = d.max()
+d_min = d.min()
+d_mean = d.mean()
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
-
+f = np.empty((2,3,5))
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -74,6 +79,24 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+
+for i, i in zip (d, f):
+      
+        if i123 > d_min and i123 < d_mean:
+                i223 = 25
+        elif i123 > d_mean and i123 < d_max:
+                i223 = 75
+
+        elif i123 == d_mean:
+                i223 = 50
+
+        elif i123 == d_min:
+                i223 = 0
+
+        elif i123 == d_max:
+                i223 = 100
+
+print(f)
 
 
 
