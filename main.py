@@ -2,22 +2,20 @@
 
 import numpy as np
 
-
+print('2', '-' *15)
 #2. Print the NUMPY version and the configuration.
 
 print(np.__version__)
-
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 a = np.random.random((2, 3, 5))
 
-
+print('4', '-' *15)
 #4. Print a.
 
 print(a)
-
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 
@@ -25,12 +23,12 @@ print(a)
 
 b = np.random.random((5,2,3))
 
-
+print('6', '-' *15)
 #6. Print b.
 
 print(b)
 
-
+print('7', '-' *15)
 #7. Do a and b have the same size? How do you prove that in Python code?
 
 #   Yes, they do
@@ -38,23 +36,24 @@ print(b)
 print("Are a.size and b.size the same? ", a.size==b.size)
 
 
-
+print('8', '-' *15)
 #8. Are you able to add a and b? Why or why not?
 
-#   No, because, although they have the same size, they do not have the same dimension
+try:
+    c = a + b
+except:
+    print("You can't add two arrays of different shape, even if the hay the same size")
 
-
-#9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
+#9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to variable "c".
 
 c = b.transpose((1, 2, 0))
 
-
-#10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
+#10. Try to add a and c. Now it should work. Assign the sum to variable "d". But why does it work now?
 
 d = a + c
 #   Now it works because they have the same dimensions, the same shape
 
-
+print('11', '-' *15)
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
 print(a)
@@ -68,16 +67,16 @@ d is the sum of two arrays created with the random.random() function, and some o
 
 '''
 
-
 #12. Multiply a and c. Assign the result to e.
 
 e = np.multiply(a, c)
 
-
+print('13', '-' *15)
 #13. Does e equal to a? Why or why not?
 
 
-#   No because e is the product of a and c.
+print(f"Is a equal to e? {e == a}. This is because e is the product of a and c.")
+
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
@@ -85,11 +84,9 @@ d_max = d.max()
 d_min = d.min()
 d_mean = d.mean()
 
-
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2, 3, 5))
-
 
 
 """
@@ -104,7 +101,7 @@ Note: you don't have to use Numpy in this question.
 
 f = np.where((d > d_min) & (d < d_mean), 25, np.where((d > d_mean) & (d < d_max), 75, np.where(d == d_min, 0, np.where(d == d_mean, 50, 100))))
 
-
+print('17', '-' *15)
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
@@ -126,9 +123,11 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
 print(d)
-
+print('-' *15)
 print(f)
 
+
+print('18', '-' *15)
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
@@ -141,3 +140,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+print(np.where((d > d_min) & (d < d_mean), 'D', np.where((d > d_mean) & (d < d_max), 'B', np.where(d == d_min, 'E', np.where(d == d_mean, 'C', 'A')))))
