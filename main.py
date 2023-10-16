@@ -35,31 +35,54 @@ print(b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-
+# %% 
+if a.size == b.size:
+    print('a and b have the same size')
+else:
+    print('a and b do not have the same size')
+# %%
 
 
 
 #8. Are you able to add a and b? Why or why not?
+# %% 
+if a.shape == b.shape:
+    print('a and b have the same shape')
+    print(a+b)
+else:
+    print('a and b do not have the same shape and hence cannot be added')
 
+
+# %%
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
-
+# %%
+c = np.transpose(b,(1,2,0)) # Utilizamos el transpose en vez del .T xq si no el orden no lo podemos imponer y luego no habrá dimensiones iguales para poder sumar
+print(c.shape) # Compruebo el shape
+print(c)
+# %%
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-
+# %%
+d = a + c # Imponemos la suma y ahora no nos da error
+##
+# %%
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
+# %% 
+print(a)
+print(d)
+# La diferencia entre unos valores y otros es que d son los valores de a sumandole 1 - los 1's de la matriz b
+# %%
 
 
 
 #12. Multiply a and c. Assign the result to e.
+## %
+e = a * c
 
-
-
+## %
 #13. Does e equal to a? Why or why not?
 
 
