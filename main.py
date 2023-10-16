@@ -5,14 +5,12 @@
 #2. Print the NUMPY version and the configuration.
 
 
-
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
 
 
 #4. Print a.
-
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
@@ -112,3 +110,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+# %%
