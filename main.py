@@ -1,67 +1,72 @@
 #1. Import the NUMPY package under the name np.
-
+import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-
-
-
+print('\n')
+print("NumPy Version:", np.__version__)
+print("NumPy Config:")
+np.show_config()
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
-
+a = np.random.rand(2, 3, 5)
 
 
 #4. Print a.
-
+print('\n','A matrix (2x3x5) equals: \n \n', a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-
+b = np.random.rand(5, 2, 3)
 
 
 #6. Print b.
 
+print('\n', 'B array is 5x2x3\n\n', b,'\n')
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-
+print('A array size is: ', id(a),'\n', 'B array size is: ', id(b),'\n')
 
 
 
 #8. Are you able to add a and b? Why or why not?
-
-
+print('\n You cant add matrixes that have different dimensions')
+print(a.shape, b.shape)
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
-
+c = b.transpose(1,2,0)
+print("\nWe can traspose b to match a and name it c\n")
+print('\n\n', "The new array (b) trasposed is called c:\n\n", c)
+print(a.shape, c.shape)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-
+d = np.add(a, c) # Now we can because there are the same no. of columns and rows
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
-
-
+print('\n a matrix is:\n\n',a,'\n\n','d matrix size:\n\n', d)
 
 
 #12. Multiply a and c. Assign the result to e.
-
+e = np.multiply(a, c)
+print("\n The multiplication of a and c is 'e': \n\n", e)
 
 
 #13. Does e equal to a? Why or why not?
-
-
+print("\n\noperands could not be broadcast together with shapes (2,3,5) (5,2,3)\n\n")
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
+d_max = np.max(d)
+d_min = np.min(d)
+d_mean = np.mean(d)
 
-
+print(f"Max: {d_max}, Min: {d_min}, Mean: {d_mean}\n")
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
+f = np.empty((2, 3, 5))
 
 
 
@@ -76,6 +81,19 @@ Note: you don't have to use Numpy in this question.
 """
 
 
+conditions = [
+    (d_min < d) & (d < d_mean),  # If d_min < d < d_mean
+    (d_mean < d) & (d < d_max),  # If d_mean < d < d_max
+    (d == d_mean),              # If d == d_mean
+    (d == d_min),               # If d == d_min
+    (d == d_max)                # If d == d_max
+]
+
+values = [25,75,50,0,100]
+
+f = np.select(conditions, values, f)
+
+print(d,"\n\n", f)
 
 
 """
@@ -112,3 +130,18 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+
+conditions = [
+    (d_min < d) & (d < d_mean),  # If d_min < d < d_mean
+    (d_mean < d) & (d < d_max),  # If d_mean < d < d_max
+    (d == d_mean),              # If d == d_mean
+    (d == d_min),               # If d == d_min
+    (d == d_max)                # If d == d_max
+]
+
+values = ['D','B','C','E','A']
+
+f = np.select(conditions, values, f)
+
+print(d,"\n\n", f)
