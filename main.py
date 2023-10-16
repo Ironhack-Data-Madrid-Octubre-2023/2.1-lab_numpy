@@ -1,31 +1,40 @@
 #1. Import the NUMPY package under the name np.
+
 import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-print(np.__version)
+
+print(np.__version__)
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
+
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 a = np.random.random((2, 3, 5))
 
 
 #4. Print a.
+
 print(a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
+
 #Assign the array to variable "b"
+
 b = np.random.random((5,2,3))
 
 
 #6. Print b.
+
 print(b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
+
 #   Yes, they do
+
 print("Are a.size and b.size the same? ", a.size==b.size)
 
 
@@ -36,37 +45,49 @@ print("Are a.size and b.size the same? ", a.size==b.size)
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
+
 c = b.transpose((1, 2, 0))
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
+
 d = a + c
 #   now it works because they have the same dimensions, the same shape
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
+
 print(a)
 
-pirnt(d)
+print(d)
+'''
 
+The values in a are lower than 1 since np.random.random() only creates values between 0 and 1 (non-inclusive).
+d is the sum of two arrays created with the random.random() function, and some of the values are higher than 1.
+
+'''
 
 
 #12. Multiply a and c. Assign the result to e.
 
+e = np.multiply(a, c)
 
 
 #13. Does e equal to a? Why or why not?
 
 
-
+#   No because e is the product of a and c.
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
+d_max = d.max()
+d_min = d.min()
+d_mean = d.mean()
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2, 3, 5))
 
 
 
