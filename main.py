@@ -79,23 +79,47 @@ print(d)
 
 
 #12. Multiply a and c. Assign the result to e.
-## %
+# %%
 e = a * c
 
-## %
+# %%
 #13. Does e equal to a? Why or why not?
+# %% 
+print('a:')
+print(a)
+print('Shape:', a.shape)
+print('Size:',a.size)
+print('e:')
+print(e)
+print('Shape:', e.shape)
+print('Size:',e.size)
+
+if np.array_equal(a,e):
+    print('a and e are equal.')
+else:
+    print('a and e are not equal.')
+# %%
 
 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
+# %%
+d_max = d.max()
+print('d_max=', d_max)
+d_min = d.min()
+print('d_min=', d_min)
+d_mean =d.mean()
+print('d_mean=', d_mean)
+# %%
 
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
-
+# %%
+f = np.zeros_like(d, dtype=int)
+f
+# %%
 
 
 """
@@ -107,9 +131,33 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+# %%
+
+f = np.where((d > d_min) & (d < d_mean), 25, f) # Curiosamente cambiando 'and' por '&' me ha salido
+f = np.where((d > d_mean) & (d < d_max), 75, f)
+f = np.where(d == d_mean, 50, f)
+f = np.where(d == d_min, 0, f)
+f = np.where(d == d_max, 100, f)
+
+'''
+f = []
+for value in d:
+    if value > d_min and value < d_mean:
+        f.append(25)
+    elif value > d_mean and value < d_max:
+        f.append(75)
+    elif value == d_mean:
+        f.append(50)
+    elif value == d_min:
+        f.append(0)
+    elif value == d_max:
+        f.append(100)
+'''
 
 
+print(f)
 
+# %%
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -131,7 +179,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+# %%
+print(f)
+# %%
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -145,4 +195,8 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+
+
+
 # %%
