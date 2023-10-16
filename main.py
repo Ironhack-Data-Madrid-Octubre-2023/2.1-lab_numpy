@@ -77,20 +77,18 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-for valor in d:
-    if valor > d_min and valor < d_mean:
-        f.append(25)
-    elif valor > d_mean and valor < d_max:
-        f.append(75)
-    elif valor == d_mean:
-        f.append(50)
-    elif valor == d_min:
-        f.append(0)
-    elif valor == d_max:
-        f.append(100)
-    else:
-        pass
-print(f)
+condition1 = (d > d_min) & (d < d_mean)
+f = np.where(condition1, 25, f)
+
+condition2 = (d > d_mean) & (d < d_max)
+f = np.where(condition2, 75, f)
+
+condition3 = (d == d_mean)
+f = np.where(condition3, 50, f)
+
+f = np.where(d == d_min, 0, f)
+
+f = np.where(d == d_max, 100, f)
 
 
 
@@ -115,7 +113,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
