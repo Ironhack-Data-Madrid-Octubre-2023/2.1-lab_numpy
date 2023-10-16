@@ -80,27 +80,34 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
-for i, i in zip (d, f):
-      
-        if i123 > d_min and i123 < d_mean:
-                i223 = 25
-        elif i123 > d_mean and i123 < d_max:
-                i223 = 75
+for i in range(d.shape[0]):
+    for j in range(d.shape[1]):
+        for k in range(d.shape[2]):
+            
+            if d[i,j,k] > d_min and d[i,j,k] < d_mean:
+                
+                f[i,j,k] = 25
+            
+            elif d[i,j,k] > d_mean and d[i,j,k] < d_max:
+                
+                f[i,j,k] = 75
+            
+            elif d[i,j,k] == d_mean:
+                
+                f[i,j,k] = 50
+            
+            elif d[i,j,k] == d_min:
+                
+                f[i,j,k] = 0
+            
+            elif d[i,j,k] == d_max:
+                
+                f[i,j,k] = 100
 
-        elif i123 == d_mean:
-                i223 = 50
-
-        elif i123 == d_min:
-                i223 = 0
-
-        elif i123 == d_max:
-                i223 = 100
-
+print(d)
 print(f)
-
-
-
-
+      
+   
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
@@ -135,3 +142,34 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+# Para poder hacer esto lo he intentado primero cambiando a capón los el LOOP anterior por A,B,C,D,E... en lugar de 25, 50, 100, 75, 0, pero el array
+# está creado con floats por lo que lo único que se me ocurre es convertirlo primero a int con el método astype(int). Algo así vamos:
+
+f = f.astype(str)
+for i in range(d.shape[0]):
+    for j in range(d.shape[1]):
+        for k in range(d.shape[2]):
+            
+            if d[i,j,k] > d_min and d[i,j,k] < d_mean:
+                
+                f[i,j,k] = 'a'
+            
+            elif d[i,j,k] > d_mean and d[i,j,k] < d_max:
+                
+                f[i,j,k] = 'b'
+            
+            elif d[i,j,k] == d_mean:
+                
+                f[i,j,k] = 'c'
+            
+            elif d[i,j,k] == d_min:
+                
+                f[i,j,k] = 'd'
+            
+            elif d[i,j,k] == d_max:
+                
+                f[i,j,k] = 'e'
+
+
+print(f)
