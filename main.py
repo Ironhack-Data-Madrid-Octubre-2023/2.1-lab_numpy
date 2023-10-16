@@ -1,15 +1,23 @@
 #1. Import the NUMPY package under the name np.
 
+#%%
+%pip install numpy
+import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
 
+#%%
+print(no.__version:__)
+#%%
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
-
+#%%
+np.random.random()
+#%%
 
 #4. Print a.
 
@@ -89,6 +97,8 @@ array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
         [1.79129243, 1.74983003, 1.96028037, 1.85166831, 1.65450881],
         [1.18068344, 1.9587381 , 1.00656599, 1.93402165, 1.73514584]]])
 
+
+
 Your f should be:
 array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  25.,  25.,  25.],
@@ -113,4 +123,4 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
-cambio para subir!!
+# %%
