@@ -52,7 +52,7 @@ c = b.transpose((1, 2, 0))
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
 d = a + c
-#   now it works because they have the same dimensions, the same shape
+#   Now it works because they have the same dimensions, the same shape
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
@@ -60,6 +60,7 @@ d = a + c
 print(a)
 
 print(d)
+
 '''
 
 The values in a are lower than 1 since np.random.random() only creates values between 0 and 1 (non-inclusive).
@@ -101,7 +102,7 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
-
+f = np.where((d > d_min) & (d < d_mean), 25, np.where((d > d_mean) & (d < d_max), 75, np.where(d == d_min, 0, np.where(d == d_mean, 50, 100))))
 
 
 """
@@ -124,7 +125,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
+print(d)
 
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
