@@ -9,7 +9,9 @@ print(np.version.version)
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
-a = np.random.random((2, 3, 5))
+a = np.random.random((2, 3, 5)) #números random de 0 a 1, en una estructura 3D. Para 2D o 1D bastaría con cambiar la cantidad de dígitos: 2D - np.random.random((2, 3)), 1D np.random.random(2)
+
+# np.random.randint(0,10,(2,3,5)) para números de 0 a 10 o lo que quieras cambiando el rango de los dígitos a elegir.
 
 #4. Print a.
 
